@@ -1,0 +1,89 @@
+1. Table creation------->
+
+syntax->
+Create Table table_name{
+	column_name1 datatype constarint,
+	column_name2 datatype constarint,
+	column_name3 datatype constarint
+	};
+
+
+example->
+CREATE DATABASE testdb //testdb database r modhye ebar amra table create korbo	
+
+CREATE TABLE customer{
+	"ID" int8 PRIMARY KEY,
+	"Name" varchar(50) NOT NULL,
+	"Age" int NOT NULL,
+	"City" char(50), 
+	"Salary" numeric
+};
+
+SELECT * FROM customer; //korle ekhono jehetu table r modhye kono data store korini 
+                         tai just structure ta mane attribute name ta show korbe
+
+						
+						
+						
+2. Value insertion------->
+
+
+synatx->
+INSERT INTO TABLE_NAME
+(column1, column2, column3,......., columnN)
+VALUES
+(value1, value2, value3,........., valueN)
+
+example->
+INSERT INTO customer
+(ID,Name,Age,City,Salary)
+VALUES
+1,'Sam',26,'Delhi',9000);
+
+
+3. Update values in table------>
+
+syntax->
+	UPDATE TABLE_NAME
+	SET "Column_name1" ='value1',"Column_name2"='value2'
+	WHERE "ID"='Value'
+	
+	
+example->
+	UPDATE customer
+	SET Name='Rahul',Age=24
+	WHERE ID=4;
+	
+	
+	
+	
+4.Delete value in a table--------->
+
+Synatx->
+	DELETE from Table_name WHERE condition;
+	
+example->
+	DELETE FROM customer WHERE age=24; 
+	
+	
+5.Alter table------->
+
+syntax->
+	ALTER TABLE table_name
+	ADD COLUMN column_name;
+	
+	ALTER TABLE table_name
+	DROP COLUMN column_name;
+	
+	ALTER TABLE table_name
+	ALTER COLUMN column_name datatype;
+	
+ 
+ 
+6.DROP & TRUNCATE---------->
+
+
+synatx->
+	DROP TABLE table_name;
+	
+	TRUNCATE TABLE Table_name;

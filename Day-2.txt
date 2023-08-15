@@ -1,0 +1,74 @@
+SELECT CLAUSE--------------->
+
+The SELECT statement is used whenever we want to some select some datas from the database.
+Syntax->
+	SELECT column_name from Table_name;
+	
+To select all the datas present in the database we use
+	SELECT * from Table_name;
+	
+To select distinct or unique datas from database we use
+	SELECT DISTINCT column_name from table_name;
+	
+* is known as asterix
+
+Suppose we want to show the datas from 2 columns named ID & AGE then the code will be
+	SELECT ID, AGE from classroom;
+	
+and if we want to se the unique values present in the column then
+	SELECT DISTINCT AGE from classroom;
+	
+
+WHERE CLAUSE--------------->
+
+The WHERE clause is used to filter records.
+It is used to extract only those records that fullfill a specified condition.
+Syntax->
+	SELECT column_name from table_name
+	WHERE condition;
+	
+As an example if we want to see the record of student aged 24 only then
+	SELECT NAME from classroom
+	WHERE AGE=24;
+	
+OPERATORS------------>
+The SQL reserved words meaning keywords that are prviously stored at the time of building
+the language with a certain meaning to it are called operators. It is generally used alongside where clause 
+for stating the condition.
+
+i)Arithmetic Operators-> +, -,*, /, %
+ii)Comparison Operators-> =, !=, >, <, >=
+iii)Logical Operators-> this performs boolean operations. 
+						ALL, IN, BETWEEN, LIKE, AND, OR, NOT, ANY
+iv)Bitwise Operators-> Bitwise AND (&), Bitwise OR(|)
+
+ALL & ANY->
+	ALL operator is used to select all tuples of SELECT STATEMENT. 
+	It is also used to compare a value to every value in another value set 
+	or result from a subquery. The ALL operator returns TRUE if all of the 
+	subqueries values meet the condition.
+	Column_Name = ALL (subquery); it will return true only when the result of sub query matches with the query
+	Column_Name = ANY (subquery); it will return true whenever one of the result of sub query matches with the query
+
+
+
+IN->
+	SELECT * FROM Customers
+	WHERE Country IN ('Germany', 'France', 'UK');
+	It will show all the details of these three countries
+	
+BETWEEN->
+	used to select values within a given range.
+	SELECT * FROM Products
+	WHERE Price BETWEEN 10 AND 20;
+	It will show all the products of price range from 10 to 20
+	
+LIKE-> 
+	'a%'->Finds any values that start with "a"
+	'%a'->Finds any values that end with "a"
+	'%or%'->Finds any values that have "or" in any position
+	'_r%'->Finds any values that have "r" in the second position
+	'a_%'->Finds any values that start with "a" and are at least 2 characters in length
+	'a__%'->Finds any values that start with "a" and are at least 3 characters in length
+	'a%o'->Finds any values that start with "a" and ends with "o"
+	

@@ -1,0 +1,60 @@
+GROUP BY statement----------------->
+It selects all the rows that has the same values in it.
+It is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(), AVG()) to group the result set by one or more columns
+Syntax: SELECT column_name(s)
+		FROM table_name
+		GROUP BY columne_name(s);
+		
+Example: SELECT mode, SUM(amount) as total
+		 FROM payment
+		 GROUP BY mode;
+		 //it will return the sum of all values present in amount column		 
+		 
+		 
+		 
+HAVING Clause-------------------->
+HAVING clause is used to apply a filter on the result of GROUP BY based on the secified condtition.
+The WHERE clause places conditions on the selected columns, where as the HAVING clause places condition on groups created by GROUP BY clause.
+
+Syntax->
+	SELECT column_name
+	FROM table_name
+	WHERE condition
+	GROUP BY column_name
+	HAVING condition
+	
+	
+Example->
+	SELECT mode, COUNT (amount) AS total
+	FROM payment
+	GROUP BY mode
+	HAVING COUNT(amount)>=3
+	ORDER BY total DESC;
+	
+	
+	
+	
+TIMESTAMP------------------------>
+The timestamp data type is used for vaues that contain both  date and time parts
+
+TIME contains only time in the format HH:MM:SS
+DATE contains only date in the format YYYY:MM:DD
+YEAR contains only year in the format YYYY or YYYY
+TIMESTAMP contains date & time in the format YYYY:MM:DD & HH:MM:SS
+TIMESTAMPZ contains date,time & time zone
+ 
+ 
+TIMESTAMP functions/operators
+SHOW TIMEZONE
+SLECT NOW()
+SELECT TIMEOFDAY()
+SELECT CURRENT_TIME
+SELECT CURRENT_DATE
+
+
+EXTRACT FUNCTION---------------->
+The EXTRACT() function extracts a part from a given date values
+Synatx:
+		SELECT EXTRACT(MONTH FROM date_field) FROM table
+		YEAR,QUARTER,MONTH,WEEK,DAY,HOUR,MINUTE,DOW(day of week),DOY(day of year)
+		

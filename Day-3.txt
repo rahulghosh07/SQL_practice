@@ -1,0 +1,87 @@
+LIMIT Clause----------------->
+The LIMIT clause is used to set an upper limit on the number of tuples returned by
+SQL.
+	Example: below code will return 5 rows from the table.
+		SELECT column_name FROM table_name
+		LIMIT 5;
+		
+		SELECT Name FROM custiomer LIMIT 5;
+		
+		
+		
+ORDER Clause------------------->
+Order clause is used to return the data in either ascendind order or descending order
+ASC is used for Ascending order
+DESC is used for descending order
+	Syntax: SELECT column_name FROM table_name
+			ORDER BY column_name ASC;
+			
+			SELECT column_name FROM table_name
+			ORDER BY column_name DESC;
+			
+	Examle: SELECT Age FROM customer
+			ORDER BY Age ASC;
+			
+			
+To insert data from a CSV file we used COPY---------------->
+	COPY customer (customer_id,first_name,last_name,email,address_id)
+	FROM 'F:\customer.csv'
+	DELIMETER ','
+	CSV HEADER;
+	
+	it will copy all the data from customer.csv file which is stored in the F drive
+	the datas are separated by ','.
+
+
+
+STRING Functions in SQL---------------->
+It works exactly like any other programming languages.
+
+	Type of functions->
+	i)System Defined Function->
+		These are built in functions.
+		rand(), round(), upper(), loweer(), count(), sum(), max() etc.
+	ii)User Defined Function-> 
+		 These are the functions we make or define while using.
+		 
+	
+UPPER() converts the value to upper case
+LOWER() converts the value to lower case
+LENGTH() returns the length of the value
+SUBSTRING() extracts a sub string from string
+NOW() returns the current system date and time
+FORMAT() used to set the fomat of a filed
+CONCAT() adds to more strings together
+REPLACE() it replaces all occurrences of a substring within a string, within a new sub string
+TRIM() reoves leading and trailing spaces from a string
+
+Example: SELECT UPPER(first_name) FROM customer;
+		 SELECT SUBSTRING(first_name,1,3), first_name FROM customer;//It will return 1 to 3 sub string from the strings
+		 SELECT CONCAT(first_nam,last_name), first_name, last_name FROM customer;//It will return the combined result of first_name and last_name from the customer
+		 SELECT REPLACE(first_name,'Mary','Mohan'), first_name FROM customer;//it will replace all the Mary with Mohan from the first_name column
+		 
+		 
+
+AGGREGATE FUNCTION--------------------------->
+Perfoms a calculation on multiple values and returns a single value and it is also often used with GROUP BY & SELECT STATEMENT
+COUNT() returns number of values
+SUM() returns sum of all values
+AVG() returns average value
+MAX() returns maximum value
+MIN() returns minimum value
+ROUND() returns a number to a specified number of decimal places
+
+Example: SELECT COUNT(amount) FROM cusomer;
+		 it means that amount has 15 rows of data
+
+		 SELECT COUNT(*) FROM customer;
+		 it means customer table has a total of 15 rows in it.
+		 
+		 SELECT SUM(amount) FROM customer;
+		 if it returns suppose 720 means the total sum of the column is 720
+
+		 SELCT MAX(amount) FROM customer;
+		 SELECT MIN(amount) FROM customer;
+		 SELECT AVG(amount) FROM customer;
+		 SELECT ROUND(AVG(amount)) FROM customer;//it will round the avd value into decimal
+		 

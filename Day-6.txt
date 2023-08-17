@@ -1,0 +1,40 @@
+SUB QUERY------------------------------->
+amra  kono query run korale je result pai tar opor amra query run korano kei sub query bole.
+sub query/inner query/nested query.
+it allowes us to create complex query on the output of another query.
+A sub query syntax has two ELECT statements.
+
+Syntax->
+	SELECT column_name
+	FROM table_name
+	WHERE column_name operator(SELECT column_name FROM table_name WHERE condition).//bracket r vitore r part ta holo sub qury.
+	
+Q. find the customer data whoose aamount is greater than avg value
+ans.
+	to find avarage value-
+	SELECT avg(amount) from payment;
+	
+	so ans-
+	SELECT * FROM payment WHERE amount>(SELECT avg(amount) drom payment);
+	but whenever there are more than one values present in the column we can't use comparison 
+	operator , instead we have to use IN
+	
+	like,
+		to select customer_id,amount,mode from payment table that matches with customr_id from customer table we can write->
+IN in sub query->
+		SELECT customer_id,amount,mode
+		FROM payment
+		WHERE customer_id IN (SELECT customer_id from customer);
+		
+		
+EXISTS in sub query->		
+	Suppose we are trying to get the first_name & last_name from customer table whoose amount>100 & amount is present in 
+	payment table 
+	code->
+		SELECT first_name,last_name
+		FROM customer can
+		WHERE EXISTS ( SELECT customer_id, amount
+						FROM payment p
+						WHERE p.customer_id=c.customer_id
+						AND amount>100 );
+

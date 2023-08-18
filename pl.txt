@@ -1,0 +1,172 @@
+RAHUL GHOSH
+ROLL::- L201
+------------------------------------
+1)declare
+begin
+dbms_output.put_line('Hello world');
+end;
+/
+PL/SQL procedure successfully completed.
+Hello World
+
+2)
+CREATE TABLE CAreas (
+  radius NUMBER(10,2),
+  area NUMBER(10,2)
+);
+
+DECLARE
+  pi CONSTANT NUMBER := 3.14;
+  r NUMBER(10,2) := 3;
+  a NUMBER(10,2);
+BEGIN
+  WHILE (r <= 7) LOOP
+    a := pi * POWER(r, 2);
+    INSERT INTO CAreas VALUES (r, a);
+    r := r + 1;
+  END LOOP;
+END;
+/
+
+SELECT* FROM CAreas;
+PL/SQL procedure successfully completed.
+22
+  
+3) 
+//select Sysdate AS System_dat FROM Dual;
+
+DECLARE
+  today_date DATE;
+BEGIN
+  today_date := SYSDATE;
+  DBMS_OUTPUT.PUT_LINE('Today''s date is: ' || today_date);
+END;
+/
+PL/SQL procedure successfully completed.
+
+
+
+4) 
+DECLARE
+  num INTEGER := 5;
+  factorial INTEGER := 1;
+BEGIN
+  FOR i IN 1..num LOOP
+    factorial := factorial * i;
+  END LOOP;
+  DBMS_OUTPUT.PUT_LINE('The factorial of ' || num || ' is ' || factorial);
+END;
+/
+PL/SQL procedure successfully completed.
+
+5)
+ declare
+   n number(5);
+   c number(5);
+   begin n:=&n;
+   c:=0;
+   for i in 2..n/2
+   loop
+   if mod(n,i)=0 then
+   c:=c+1;
+   end if;
+   end loop;
+   if c=0 then
+   dbms_output.put_line('Prime number');
+   else
+   dbms_output.put_line('not a Prime number');
+   end if;
+   end;
+  /
+  PL/SQL procedure successfully completed.
+
+6)
+declare
+n number(5);
+rev number(5);
+begin
+n:=&n;
+rev:=0;
+while n>0
+loop
+rev:=(rev*10) + mod(n,10);
+n:=floor(n/10);
+end loop;
+dbms_output.put_line('reverse is' || rev);
+end;
+/
+PL/SQL procedure successfully completed.
+
+
+7)
+DECLARE
+  num1 NUMBER := 20;
+  num2 NUMBER := 30;
+  temp NUMBER;
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('Before swapping: ');
+  DBMS_OUTPUT.PUT_LINE('num1 = ' || num1 || ', num2 = ' || num2);
+  temp := num1;
+  num1 := num2;
+  num2 := temp;
+  
+  DBMS_OUTPUT.PUT_LINE('After swapping: ');
+  DBMS_OUTPUT.PUT_LINE('num1 = ' || num1 || ', num2 = ' || num2);
+END;
+/
+PL/SQL procedure successfully completed.
+
+8)
+DECLARE
+  num NUMBER := 101;
+  temp NUMBER := num;
+  reverse_num NUMBER := 0;
+BEGIN
+  WHILE temp > 0 LOOP
+    reverse_num := (reverse_num * 10) + (temp MOD 10);
+    temp := TRUNC(temp / 10);
+  END LOOP;
+  
+  IF num = reverse_num THEN
+    DBMS_OUTPUT.PUT_LINE(num || ' is a palindrome number.');
+  ELSE
+    DBMS_OUTPUT.PUT_LINE(num || ' is not a palindrome number.');
+  END IF;
+END;
+/
+PL/SQL procedure successfully completed.
+
+9)
+
+DECLARE
+  year NUMBER := 2000;
+BEGIN
+  IF ((year MOD 4 = 0 AND year MOD 100 != 0) OR year MOD 400 = 0) THEN
+    DBMS_OUTPUT.PUT_LINE(year || ' is a leap year.');
+  ELSE
+    DBMS_OUTPUT.PUT_LINE(year || ' is not a leap year.');
+  END IF;
+END;
+/
+PL/SQL procedure successfully completed.
+
+10)
+DECLARE
+  num1 INTEGER := 7;
+  num2 INTEGER := 3;
+  gcd INTEGER;
+BEGIN
+  FOR i IN 1..num1 LOOP
+    IF ((num1 MOD i = 0) AND (num2 MOD i = 0)) THEN
+      gcd := i;
+    END IF;
+  END LOOP;
+  
+  IF (gcd = 1) THEN
+    DBMS_OUTPUT.PUT_LINE(num1 || ' and ' || num2 || ' are coprime.');
+  ELSE
+    DBMS_OUTPUT.PUT_LINE(num1 || ' and ' || num2 || ' are not coprime.');
+  END IF;
+END;
+/
+PL/SQL procedure successfully completed.

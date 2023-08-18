@@ -1,0 +1,47 @@
+CASE EXPRESSION------------------------------------->
+it goes through the conditions and returns a value when th first condition is met (like if-else).
+If no condition are true then it returns the value in the else clause.
+If there is no else statement and no conditions are true then it returns null.
+
+Syntax->
+	CASE
+	WHEN condition1 THEN result1
+	WHEN condition2 THEN result2
+	WHEN conditionN THEN resultN
+	ELSE other result
+	END;
+	
+Example->
+	SELECT customer_id, amount,
+	CASE
+	WHEN amount > 100 THEN 'Expensive product'
+	WHEN amount = 100 THEN 'Moderate product'
+	ELSE 'Inexpensive product'
+	END AS ProductStatus
+	FROM payment;
+	
+	
+	
+COMMON TABLE EXPRESSION(CTE)------------------------------------->
+sql optimization r time e eta use kora hye thake.
+
+• A common table expression, or CTE, is a temporary
+named result set created from a simple SELECT statement
+that can be used in a subsequent SELECT statement
+Means when ever we use select operation, the result is that gets generated is temporary so setai thake CTE r modhye
+jar opor sub query perform kora hoy.  
+
+• We can define CTEs by adding a WITH clause directly
+before SELECT, INSERT, UPDATE, DELETE, or MERGE
+statement.
+	
+• The WITH clause can include one or more CTEs separated
+by commas
+
+
+Syntax->
+	WITH my_cte AS(
+				SELECT a,b,c
+				FROM Table1)
+		SELECT a,c
+		FROM my_cte;

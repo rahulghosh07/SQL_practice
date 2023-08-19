@@ -1,0 +1,121 @@
+//area of a circle
+  create table areas(
+  radius number(10,2),
+  area number(10,2));
+  
+  declare
+  pi constant number:=3.14;
+  r number(10,2):=3;
+  a number(10,2);
+  begin
+  while(r<=7)loop
+  a:=pi*power(r,2);
+  insert into areas values(r,a);
+  r:=r+1;
+  end loop;
+  end;
+  /
+  
+  declare
+  today_date date;
+  begin
+  today_date:=sysdate;
+  dbms_output.put_line('Today''s date is: '||today_date);
+  end;
+  /
+  
+  declare
+  n number(10);
+  fact number:=1;
+  begin
+  n:=&n;
+  for i in 1..n loop
+  fact:=fact*i;
+  end loop;
+  dbms_output.put_line('Factorial of'||n||'is'||fact);
+  end;
+  /
+  
+  declare
+  n number(10);
+  c number:=0;
+  begin
+  n:=&n;
+  for i in 2..n/2 loop
+  if mod(n,i)=0 then
+  c:=c+1;
+  end if;
+  end loop;
+  if c=0 then
+  dbms_output.put_line('Prime number');
+  else
+  dbms_output.put_line('not a Prime numeber');
+  end if;
+  end;
+  /
+  
+  declare
+  n number(10);
+  rev number(10);
+  begin
+  n:=&n;
+  rev:=0;
+  while n>0 loop
+  rev:=(rev*10)+mod(n,10);
+  n:=floor(n/10);
+  end loop;
+  dbms_output.put_line('Reverse is '||rev);
+  end;
+  /
+  
+  
+  declare
+  num1 number(10);
+  num2 number(10);
+  temp number(10);
+  
+  begin
+  num1:=&num1;
+  num2:=&num2;
+  dbms_output.put_line('Before swapping:');
+  dbms_output.put_line('num1: '||num1||'num2: '||num2);
+  temp:=num1;
+  num1:=num2;
+  num2:=temp;
+  dbms_output.put_line('After swapping:');
+  dbms_output.put_line('num1: '||num1||'num2: '||num2);
+  end;
+  /
+  
+  declare
+  n number(10);
+  rev number(10);
+  temp number(10);
+  begin
+  n:=&n;
+  temp:=n;
+  rev:=0;
+  while n>0 loop
+  rev:=(rev*10)+mod(n,10);
+  n:=floor(n/10);
+  end loop;
+  if temp=rev then
+  dbms_output.put_line('Palindrome');
+  else
+  dbms_output.put_line('Not palindrome');
+  end if;
+  end;
+  /
+  
+  
+  declare
+  year number(10);
+  begin
+  year:=&year;
+  if((year mod 4=0 and year mod 100!=0) or year mod 400=0) then
+  dbms_output.put_line('Leap year');
+  else
+  dbms_output.put_line('not Leap year');
+  end if;
+  end;
+  /

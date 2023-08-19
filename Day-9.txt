@@ -1,0 +1,54 @@
+create table customer(cust_id number(3),
+  cust_firstn varchar(15),
+  cust_lastn varchar(15),
+  territory varchar(15),
+  credit_limit float(6),
+  mgn_id number(3),
+  dob date,
+  marritorial_status varchar(10),
+  gen char(1),
+  income number(7),stay_from_year number(4));
+  
+  insert into customer values(147,'Rahul','Ghosh','Indian',600.2,147,'17-MAR-44','single','M',80000,2003);
+  
+  create table tablenmae(
+  columnename type constraints);
+  
+  
+  insert into tablename values(........);
+  
+  
+  alter table add columnname type;//existing table e ekta column add korar jnno
+  
+  
+  update tablename set comumnname=value;//new added column r modhye data store korar jnoo
+  
+  
+  delete from tablename where condition;//kono specific row k delete kor6i
+  
+  
+  alter table rename columnname1 to columnname2;//column r name change kor6i
+  
+  
+  create table cust1 as select * from customer;//new table create kor6i data somet from existing table
+  
+  
+  create table cust2 as select * from customer where 1=0;//faka new table create kor6i data 6ara from existing table
+  
+  
+  alter table tablename modify columnname type;//column r type change korar jnno
+  
+  
+  drop table tablename;//to delete a table
+  
+  
+  flashback table tablename to before drop;//table ta k firie ante
+  
+  
+  select columnname fom tablename where columnname like 'R%';//r die start hoa data gulo dhow korbe
+  
+  
+  select * from customer order by columnname desc;//oi column r according e descending order e data show korabe
+  
+  
+  select cust_firstn ||" "|| cust_lastn as name from customer;

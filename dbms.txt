@@ -1,0 +1,227 @@
+create table customer(cust_id number(3),
+  cust_firstn varchar(15),
+  cust_lastn varchar(15),
+  territory varchar(15),
+  credit_limit float(6),
+  mgn_id number(3),
+  dob date,
+  marritorial_status varchar(10),
+  gen char(1),
+  income number(7),stay_from_year number(4));
+  
+  insert into customer values(147,'Rahul','Ghosh','Indian',600.2,147,'17-MAR-44','single','M',80000,2003);
+  
+  create table tablenmae(
+  columnename type constraints);
+  
+  
+  insert into tablename values(........);
+  
+  
+  alter table add columnname type;//existing table e ekta column add korar jnno
+  
+  
+  update tablename set comumnname=value;//new added column r modhye data store korar jnoo
+  
+  
+  delete from tablename where condition;//kono specific row k delete kor6i
+  
+  
+  alter table rename columnname1 to columnname2;//column r name change kor6i
+  
+  
+  create table cust1 as select * from customer;//new table create kor6i data somet from existing table
+  
+  
+  create table cust2 as select * from customer where 1=0;//faka new table create kor6i data 6ara from existing table
+  
+  
+  alter table tablename modify columnname type;//column r type change korar jnno
+  
+  
+  drop table tablename;//to delete a table
+  
+  
+  flashback table tablename to before drop;//table ta k firie ante
+  
+  
+  select columnname fom tablename where columnname like 'R%';//r die start hoa data gulo dhow korbe
+  
+  
+  select * from customer order by columnname desc;//oi column r according e descending order e data show korabe
+  
+  
+  select cust_firstn ||" "|| cust_lastn as name from customer;
+  
+  
+  
+  //area of a circle
+  create table areas(
+  radius number(10,2),
+  area number(10,2));
+  
+  declare
+  pi constant number:=3.14;
+  r number(10,2):=3;
+  a number(10,2);
+  begin
+  while(r<=7)loop
+  a:=pi*power(r,2);
+  insert into areas values(r,a);
+  r:=r+1;
+  end loop;
+  end;
+  /
+  
+  declare
+  today_date date;
+  begin
+  today_date:=sysdate;
+  dbms_output.put_line('Today''s date is: '||today_date);
+  end;
+  /
+  
+  declare
+  n number(10);
+  fact number:=1;
+  begin
+  n:=&n;
+  for i in 1..n loop
+  fact:=fact*i;
+  end loop;
+  dbms_output.put_line('Factorial of'||n||'is'||fact);
+  end;
+  /
+  
+  declare
+  n number(10);
+  c number:=0;
+  begin
+  n:=&n;
+  for i in 2..n/2 loop
+  if mod(n,i)=0 then
+  c:=c+1;
+  end if;
+  end loop;
+  if c=0 then
+  dbms_output.put_line('Prime number');
+  else
+  dbms_output.put_line('not a Prime numeber');
+  end if;
+  end;
+  /
+  
+  declare
+  n number(10);
+  rev number(10);
+  begin
+  n:=&n;
+  rev:=0;
+  while n>0 loop
+  rev:=(rev*10)+mod(n,10);
+  n:=floor(n/10);
+  end loop;
+  dbms_output.put_line('Reverse is '||rev);
+  end;
+  /
+  
+  
+  declare
+  num1 number(10);
+  num2 number(10);
+  temp number(10);
+  
+  begin
+  num1:=&num1;
+  num2:=&num2;
+  dbms_output.put_line('Before swapping:');
+  dbms_output.put_line('num1: '||num1||'num2: '||num2);
+  temp:=num1;
+  num1:=num2;
+  num2:=temp;
+  dbms_output.put_line('After swapping:');
+  dbms_output.put_line('num1: '||num1||'num2: '||num2);
+  end;
+  /
+  
+  declare
+  n number(10);
+  rev number(10);
+  temp number(10);
+  begin
+  n:=&n;
+  temp:=n;
+  rev:=0;
+  while n>0 loop
+  rev:=(rev*10)+mod(n,10);
+  n:=floor(n/10);
+  end loop;
+  if temp=rev then
+  dbms_output.put_line('Palindrome');
+  else
+  dbms_output.put_line('Not palindrome');
+  end if;
+  end;
+  /
+  
+  
+  declare
+  year number(10);
+  begin
+  year:=&year;
+  if((year mod 4=0 and year mod 100!=0) or year mod 400=0) then
+  dbms_output.put_line('Leap year');
+  else
+  dbms_output.put_line('not Leap year');
+  end if;
+  end;
+  /
+  
+  
+  declare
+  num1 number(10);
+  num2 number(10);
+  gcd number(10);
+  begin
+  num1:=&num1;
+  num2:=&num2;
+  gcd:=1;
+  for i in 2..num1 loop
+  if((num1 mod i =0) and (num2 mod i=0)) then
+  gcd:=i;
+  end if;
+  end loop;
+  if gcd=1 then
+  dbms_output.put_line('coprime');
+  else
+  dbms_output.put_line('not coprime');
+  end if;
+  end;
+  /
+
+create table sailor(
+ emp_id number(3) primary key,
+first_name varchar(10) check(first_name=initcap(first_name)),
+last_name 5
+
+alter table sailor add constraints primary_key primary key(sid);
+alter table sailor add constraints init_small check(sid like 's%');
+alter table sailor add constraints init_cap check(sname=initcap(sname));
+alter table sailor modify surname not null;
+alter table sailor modify rating default 0;
+alter table sailor modify age not null;
+alter table boat add constraints primary_key primary key(bid);
+alter table boat add constraints upper_case check(bname=upper(bname));
+alter table reserve add constraints foreign_bid foreign key(bid) references boat(bid);
+
+
+rev:=(rev*10)+mod(n,10);
+n:=floor(n/10)
+
+n mod 4=0 and n mod 100!=0 or n mod 400=0
+
+
+alter table sailor add  constraints pk primary key(sid);
+alter table sailor add constraints initsmall check(sid like 's%');
+alter table sailor modify surname not null;
+n
